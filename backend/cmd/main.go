@@ -25,7 +25,10 @@ func main() {
 		w.WriteHeader(200)
 		w.Write([]byte("OK"))
 	})
-	r.Post("/shorten", internal.ShortenURL())
+	r.Route("/shorten", func(r chi.Router) {
+		r.Post("/create", internal.ShortenURL())
+		r.Get("/redirect/{url}", internal.Redirect())
+	})
 
 	fmt.Printf("Server running on port: %s \n", configs.WebServerPort)
 	http.ListenAndServe(":3000", r)

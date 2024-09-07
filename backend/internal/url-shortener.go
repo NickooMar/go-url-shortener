@@ -22,3 +22,11 @@ func ShortenURL() http.HandlerFunc {
 		fmt.Printf("Original URL: %s \n", url.OriginalURL)
 	})
 }
+
+func Redirect() http.HandlerFunc {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		url := r.URL.Query().Get("url")
+		fmt.Printf("Redirecting to: %s \n", url)
+		http.Redirect(w, r, url, http.StatusMovedPermanently)
+	})
+}
