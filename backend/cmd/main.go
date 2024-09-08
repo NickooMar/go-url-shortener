@@ -30,6 +30,6 @@ func main() {
 		r.Get("/redirect/{url}", internal.Redirect())
 	})
 
-	fmt.Printf("Server running on port: %s \n", configs.WebServerPort)
+	fmt.Printf("[BACKEND] - Server running on port: %s \n", configs.WebServerPort)
 	http.ListenAndServe(":3000", r)
 }
