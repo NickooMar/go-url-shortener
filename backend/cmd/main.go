@@ -23,7 +23,7 @@ func main() {
 
 	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(200)
-		w.Write([]byte("OK \n"))
+		w.Write([]byte("OK!!! \n"))
 	})
 	r.Route("/shorten", func(r chi.Router) {
 		r.Post("/create", internal.ShortenURL())
