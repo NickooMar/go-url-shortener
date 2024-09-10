@@ -23,13 +23,13 @@ func main() {
 
 	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(200)
-		w.Write([]byte("OK!!! \n"))
+		w.Write([]byte("OK! \n"))
 	})
-	r.Route("/shorten", func(r chi.Router) {
+	r.Route("/short", func(r chi.Router) {
 		r.Post("/create", internal.ShortenURL())
-		r.Get("/redirect/{url}", internal.Redirect())
+		r.Get("/redirect/{key}", internal.Redirect())
 	})
 
 	fmt.Printf("[BACKEND] - Server running on port: %s \n", configs.WebServerPort)
-	http.ListenAndServe(":3000", r)
+	http.ListenAndServe(fmt.Sprintf(":%s", configs.WebServerPort), r)
 }

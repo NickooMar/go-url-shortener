@@ -1,13 +1,117 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Hello World!
 
 on:
     push:
         branches:
             - main
+    pull_request:
+            branches:
+                - main
 
-jobs: 
-    Hello:
+jobs:
+    build:
         runs-on: ubuntu-latest
+
         steps:
-            - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Hello World
+              run: echo "Hello, World!"
+
+# name: CI/CD Pipeline
+
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+
+# jobs:
+#   build-backend:
+#     name: Build Backend
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+
+#       - name: Set up Go
+#         uses: actions/setup-go@v2
+#         with:
+#           go-version: '1.22'
+
+#       - name: Build Backend
+#         uses: docker://docker:20.10.7
+#         with:
+#             script: |
+#                 cd ~/backend
+
+#                 git pull origin main
+
+#                 sudo docker build -t url-shortener-backend \
+#                     --build-arg WEB_SERVER_PORT="${{ secrets.WEB_SERVER_PORT }}" \
+#                     -f Dockerfile .
+            
+                
+#                 CONTAINER_ID=$(sudo docker ps -aqf "name=url-shortener-backend")
+
+#                 if [ ! -z "$CONTAINER_ID" ]; then
+#                     sudo docker stop $CONTAINER_ID
+#                     sudo docker rm $CONTAINER_ID
+#                 fi
+
+#                 sudo docker run -d -p $WEB_SERVER_PORT:$WEB_SERVER_PORT url-shortener-backend \
+#                     -e WEB_SERVER_PORT="${{secrets.WEB_SERVER_PORT}}" \
+#                     url-shortener-backend
+            
+#                 sudo docker ps
+
+#   build-frontend:
+#     name: Build Frontend
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: '16'
+
+#       - name: Install Dependencies
+#         run: |
+#           cd frontend
+#           npm install
+
+#       - name: Build Frontend
+#         run: |
+#           cd frontend
+#           npm run build
+
+#       - name: Run Frontend Tests
+#         run: |
+#           cd frontend
+#           npm test
+
+#   deploy:
+#     name: Deploy
+#     runs-on: ubuntu-latest
+#     needs: [build-backend, build-frontend]
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+
+#       - name: Deploy Backend
+#         run: |
+#           echo "Deploying backend..."
+#           # Add your deployment script/commands here
+
+#       - name: Deploy Frontend
+#         run: |
+#           echo "Deploying frontend..."
+#           # Add your deployment script/commands here
