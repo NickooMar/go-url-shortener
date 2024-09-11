@@ -25,9 +25,11 @@ func main() {
 		w.WriteHeader(200)
 		w.Write([]byte("OK! \n"))
 	})
+
+	mapper := internal.NewURLMapper()
 	r.Route("/short", func(r chi.Router) {
-		r.Post("/create", internal.ShortenURL())
-		r.Get("/redirect/{key}", internal.Redirect())
+		r.Post("/create", mapper.ShortenURL("http://localhost:3000/short/redirect/"))
+		r.Get("/redirect/{key}", mapper.Redirect())
 	})
 
 	fmt.Printf("[BACKEND] - Server running on port: %s \n", configs.WebServerPort)
