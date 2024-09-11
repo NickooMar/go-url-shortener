@@ -8,6 +8,7 @@ import (
 
 type Configs struct {
 	WebServerPort string `mapstructure:"WEB_SERVER_PORT"`
+	WebServerHost string `mapstructure:"WEB_SERVER_HOST"`
 }
 
 func LoadConfig() *Configs {
@@ -24,6 +25,7 @@ func LoadConfig() *Configs {
 		}
 		configs = Configs{
 			WebServerPort: os.Getenv("WEB_SERVER_PORT"),
+			WebServerHost: os.Getenv("WEB_SERVER_HOST"),
 		}
 	} else {
 		err = viper.Unmarshal(&configs)

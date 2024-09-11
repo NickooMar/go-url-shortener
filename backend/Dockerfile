@@ -3,7 +3,8 @@ FROM golang:1.22-alpine AS build-env
 
 RUN apk add --update --upgrade --no-cache build-base git
 
-ARG BACKEND_WEB_SERVER_PORT
+ARG WEB_SERVER_PORT
+ARG WEB_SERVER_HOST
 
 WORKDIR /go/src
 
@@ -20,11 +21,12 @@ WORKDIR /app
 # Copy the built binary from the build stage
 COPY --from=build-env /go/src/ .
 
-ENV BACKEND_WEB_SERVER_PORT=${BACKEND_WEB_SERVER_PORT}
+ENV WEB_SERVER_PORT=${WEB_SERVER_PORT}
+ENV WEB_SERVER_HOST=${WEB_SERVER_HOST}
 
 COPY . .
 
 # Expose the port
-EXPOSE ${BACKEND_WEB_SERVER_PORT}
+EXPOSE ${WEB_SERVER_PORT}
 
 ENTRYPOINT ["./main"]

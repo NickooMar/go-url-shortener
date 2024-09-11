@@ -28,7 +28,7 @@ func main() {
 
 	mapper := internal.NewURLMapper()
 	r.Route("/short", func(r chi.Router) {
-		r.Post("/create", mapper.ShortenURL("http://localhost:3000/short/redirect/"))
+		r.Post("/create", mapper.ShortenURL(fmt.Sprintf("http://%s:%s/short/redirect/", configs.WebServerHost, configs.WebServerPort)))
 		r.Get("/redirect/{key}", mapper.Redirect())
 	})
 
