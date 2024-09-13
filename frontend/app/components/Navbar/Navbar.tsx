@@ -1,10 +1,14 @@
-import { ModeToggle } from "../mode-toggle";
+import LanguageSelector from "../LanguageSelector/LanguageSelecto";
+import { ModeToggle } from "../ModeToggle/ModeToggle";
 
 const Navbar = () => {
   return (
-    <div>
-      <ModeToggle />
-    </div>
+    <nav className="flex justify-end">
+      <div className="p-2">
+        <LanguageSelector />
+        <ModeToggle />
+      </div>
+    </nav>
   );
 };
 

@@ -7,7 +7,7 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 import "./tailwind.css";
-
+import { useChangeLanguage } from "remix-i18next/react";
 import clsx from "clsx";
 import {
   PreventFlashOnWrongTheme,
@@ -17,29 +17,43 @@ import {
 
 import { themeSessionResolver } from "./sessions.server";
 import { LoaderFunctionArgs } from "@remix-run/node";
+import Navbar from "./components/Navbar/Navbar";
+import i18next from "./i18n.server";
+import { useTranslation } from "react-i18next";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const { getTheme } = await themeSessionResolver(request);
+  const locale = await i18next.getLocale(request);
+
   return {
     theme: getTheme(),
+    locale,
   };
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const data = useLoaderData<typeof loader>();
+  const { theme, locale } = useLoaderData<typeof loader>();
 
   return (
-    <ThemeProvider specifiedTheme={data.theme} themeAction="/action/set-theme">
-      <ThemeContent>{children}</ThemeContent>
+    <ThemeProvider specifiedTheme={theme} themeAction="/action/set-theme">
+      <ThemeContent locale={locale}>{children}</ThemeContent>
     </ThemeProvider>
   );
 }
 
-function ThemeContent({ children }: { children: React.ReactNode }) {
+function ThemeContent({
+  children,
+  locale,
+}: {
+  children: React.ReactNode;
+  locale: string;
+}) {
   const [theme] = useTheme();
+  const { i18n } = useTranslation();
+  useChangeLanguage(locale);
 
   return (
-    <html lang="en" className={clsx(theme)}>
+    <html lang={locale} dir={i18n.dir()} className={clsx(theme)}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -48,6 +62,7 @@ function ThemeContent({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <Navbar />
         {children}
         <ScrollRestoration />
         <Scripts />
