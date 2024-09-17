@@ -1,3 +1,8 @@
+export enum SupportedLanguages {
+  ES = "es",
+  EN = "en",
+}
+
 export default {
   supportedLngs: ["en", "es"],
   fallbackLng: "en",

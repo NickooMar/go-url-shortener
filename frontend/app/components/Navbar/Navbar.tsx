@@ -1,4 +1,4 @@
-import LanguageSelector from "../LanguageSelector/LanguageSelecto";
+import LanguageSelector from "../LanguageSelector/LanguageSelector";
 import { ModeToggle } from "../ModeToggle/ModeToggle";
 
 const Navbar = () => {
