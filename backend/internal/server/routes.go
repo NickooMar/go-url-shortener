@@ -20,9 +20,6 @@ func (s *Server) RegisterRoutes(configs *configs.Configs) http.Handler {
 		s.URLShortenerHandler(r, configs)
 	})
 
-	fmt.Printf("[BACKEND] - Server running on port: %s \n", configs.WebServerPort)
-	http.ListenAndServe(fmt.Sprintf(":%s", configs.WebServerPort), r)
-
 	return r
 }
 
