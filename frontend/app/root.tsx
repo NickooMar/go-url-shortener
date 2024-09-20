@@ -17,7 +17,6 @@ import {
 
 import { themeSessionResolver } from "./sessions.server";
 import { LoaderFunctionArgs } from "@remix-run/node";
-import Navbar from "./components/Navbar/Navbar";
 import i18next from "./i18n.server";
 import { useTranslation } from "react-i18next";
 
@@ -62,7 +61,6 @@ function ThemeContent({
         <Links />
       </head>
       <body>
-        <Navbar />
         {children}
         <ScrollRestoration />
         <Scripts />

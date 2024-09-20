@@ -1,3 +1,18 @@
 {
-  "greeting": "Hello"
+  "main": {
+    "services": {
+      "url_shortener": {
+        "title": "URL Shortener",
+        "description": "Shorten your long URLs to make them easier to share."
+      }
+    }
+  },
+  "languages": {
+    "spanish": "Spanish",
+    "english": "English"
+  },
+  "themes": {
+    "light": "Light",
+    "dark": "Dark"
+  }
 }

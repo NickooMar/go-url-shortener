@@ -1,3 +1,20 @@
 {
-  "greeting": "Hola"
+  "main": {
+    "title": "Bienvenido",
+    "description": "Aquí podrás buscar un servicio.",
+    "services": {
+      "url_shortener": {
+        "title": "Acortador de URL",
+        "description": "Acorta tus URLs de forma sencilla y rápida."
+      }
+    }
+  },
+  "languages": {
+    "spanish": "Español",
+    "english": "Inglés"
+  },
+  "themes": {
+    "light": "Claro",
+    "dark": "Oscuro"
+  }
 }
