@@ -19,6 +19,7 @@ import { themeSessionResolver } from "./sessions.server";
 import { LoaderFunctionArgs } from "@remix-run/node";
 import i18next from "./i18n.server";
 import { useTranslation } from "react-i18next";
+import Navbar from "./components/Navbar/Navbar";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const { getTheme } = await themeSessionResolver(request);
@@ -61,7 +62,10 @@ function ThemeContent({
         <Links />
       </head>
       <body>
-        {children}
+        <main className="h-lvh w-full bg-background bg-dot-black/[0.2] dark:bg-background dark:bg-dot-white/[0.2]">
+          <Navbar />
+          {children}
+        </main>
         <ScrollRestoration />
         <Scripts />
       </body>

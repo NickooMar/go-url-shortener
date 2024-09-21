@@ -1,5 +1,7 @@
 {
   "main": {
+    "title": "Welcome to GO Toolkit!",
+    "description":"Here you can search for a service.",
     "services": {
       "url_shortener": {
         "title": "URL Shortener",

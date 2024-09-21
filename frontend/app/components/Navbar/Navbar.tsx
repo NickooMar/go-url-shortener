@@ -3,10 +3,10 @@ import { ModeToggle } from "../ModeToggle/ModeToggle";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-around py-8">
-      <div>
-        <h4 className="font-roboto font-bold pb-2 text-xl text-primary dark:text-primary-foreground">
-          GO URL SHORTENER
+    <nav className="flex justify-around items-center py-6">
+      <div className="flex justify-center items-center">
+        <h4 className="font-core-sans font-bold text-xl text-primary dark:text-primary-foreground">
+          GO TOOLKIT
         </h4>
       </div>
       <div className="flex items-center space-x-4">

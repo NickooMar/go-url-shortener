@@ -42,7 +42,7 @@ export default async function handleRequest(
       ...i18n,
       lng,
       ns,
-      backend: { loadPath: resolve("./public/locales/{{lng}}/{{ns}}.json") },
+      backend: { loadPath: resolve("./public/locales/{{lng}}.json") },
     });
 
   return isbot(request.headers.get("user-agent") || "")

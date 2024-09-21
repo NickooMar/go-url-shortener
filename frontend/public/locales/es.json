@@ -1,6 +1,6 @@
 {
   "main": {
-    "title": "Bienvenido",
+    "title": "Bienvenido a Go Toolkit!",
     "description": "Aquí podrás buscar un servicio.",
     "services": {
       "url_shortener": {
