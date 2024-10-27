@@ -1,5 +1,5 @@
-import LanguageSelector from "../LanguageSelector/LanguageSelector";
-import { ModeToggle } from "../ModeToggle/ModeToggle";
+import LanguageSelector from "@/components/LanguageSelector/LanguageSelector";
+import { ModeToggle } from "@/components/ModeToggle/ModeToggle";
 
 const Navbar = () => {
   return (

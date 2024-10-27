@@ -5,9 +5,9 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 import { useTranslation } from "react-i18next";
-import { SupportedLanguages } from "~/lib/i18n";
+import { SupportedLanguages } from "@/lib/i18n";
 
 const LanguageSelector = () => {
   const { i18n, t } = useTranslation();

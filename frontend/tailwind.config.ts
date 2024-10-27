@@ -51,6 +51,7 @@ const config = {
         sans: ["Inter", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],
         "core-sans": ['"Core Sans M W01 65 Bold"', "sans-serif"],
+        sora: ['"Sora"', "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
@@ -75,6 +76,7 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
+    require('@shrutibalasa/tailwind-grid-auto-fit'),
     addVariablesForColors,
     addDotsBackground,
   ],

@@ -62,7 +62,7 @@ function ThemeContent({
         <Links />
       </head>
       <body>
-        <main className="h-lvh w-full bg-background bg-dot-black/[0.2] dark:bg-background dark:bg-dot-white/[0.2]">
+        <main className="h-[100%] min-h-screen bg-background bg-dot-black/[0.2] dark:bg-background dark:bg-dot-white/[0.2]">
           <Navbar />
           {children}
         </main>
